@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+
+before_action :set_article, only: [:edit, :updaate]
   
   def index
     @articles = Article.all
@@ -19,12 +21,25 @@ class ArticlesController < ApplicationController
   def edit
   end
 
+  #def update 
+  #  respond_to do |format|
+  #    if @article.update(article_params)
+  #      redirect_to @article, notice: 'Article was successfully update.'
+  #      render :show, status: created, location:@article
+  #    else
+  #      render :new
+  #    end
+  #  end
+  #end
+
   private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :text)
   end
-
-
 
 end
