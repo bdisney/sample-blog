@@ -4,9 +4,9 @@
 	<% if @contact && @contact.errors.any? %>
 		<p>
 			<ul>
-			<% @contact.errors.full_messages.each do |msg|  %>
-				<li><%= msg %></li>
-			<% end -%>
+				<% @contact.errors.full_messages.each do |msg|  %>
+					<li><%= msg %></li>
+				<% end -%>
 			</ul>
 		</p>
 	<% end %>	
@@ -14,7 +14,6 @@
 		<%= f.label :email %><br />
 		<%= f.text_field :email %>
 	</p>
-
 		<p>
 		<%= f.label :message %><br />
 		<%= f.text_area :message %>
