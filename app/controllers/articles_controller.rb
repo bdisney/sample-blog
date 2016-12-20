@@ -6,6 +6,10 @@ before_action :set_article, only: [:edit, :updaate]
     @articles = Article.all
   end
 
+  def show
+    @article = Article.find(params[:id])
+  end
+
   def new
   end
   
@@ -21,16 +25,16 @@ before_action :set_article, only: [:edit, :updaate]
   def edit
   end
 
-  #def update 
-  #  respond_to do |format|
-  #    if @article.update(article_params)
-  #      redirect_to @article, notice: 'Article was successfully update.'
-  #      render :show, status: created, location:@article
-  #    else
-  #      render :new
-  #    end
-  #  end
-  #end
+  def update 
+    @article = Article.find(params[:id])
+      if @article.update(article_params)
+        redirect_to @article
+        
+      else
+        render action: 'edit'
+      end
+    
+  end
 
   private
 
