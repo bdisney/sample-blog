@@ -1,0 +1,9 @@
+<p>Articlezorium waiting for a new article!</p>
+
+<% @articles.each do |article| %>
+	<h3><%= article. title %></h3>
+	<p><%= article.text %></p>
+	<p><sub>Added at: <%= article.created_at %></sub></p>
+	<p><%= link_to 'Edit', edit_article_path(article) %></p>
+	<br />
+<% end %>

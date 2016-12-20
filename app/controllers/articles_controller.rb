@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
   
+  def index
+    @articles = Article.all
+  end
+
   def new
   end
   
@@ -10,7 +14,9 @@ class ArticlesController < ApplicationController
     else
       render action: 'new'
     end 
-    
+  end
+
+  def edit
   end
 
   private
@@ -18,5 +24,7 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :text)
   end
+
+
 
 end
