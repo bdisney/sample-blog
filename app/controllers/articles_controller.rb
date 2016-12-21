@@ -13,7 +13,7 @@ before_action :set_article, only: [:edit, :update]
     @article = Article.new(article_params)  
     if @article.valid?
       @article.save
-      redirect_to @articles
+      redirect_to @article
     else
       render :new
     end 
