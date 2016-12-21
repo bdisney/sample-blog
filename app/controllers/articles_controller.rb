@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-before_action :set_article, only: [:edit, :show, :update]
+before_action :set_article, only: [:edit, :show, :update, :destroy]
   
   def index
     @articles = Article.order('updated_at DESC') 
@@ -30,6 +30,12 @@ before_action :set_article, only: [:edit, :show, :update]
       else
         render action: 'edit'
       end
+  end
+
+  def destroy
+    @article.destroy
+
+    redirect_to articles_path
   end
 
   private
