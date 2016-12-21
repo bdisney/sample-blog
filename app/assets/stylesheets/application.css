@@ -21,3 +21,9 @@
 .field_with_errors textarea {
 	border-color: red;
 }
+body {
+	padding-left: 5%;
+	padding-top: 5%;
+
+}
+
