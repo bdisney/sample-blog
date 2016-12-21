@@ -13,6 +13,7 @@ before_action :set_article, only: [:edit, :update]
     @article = Article.new(article_params)  
     if @article.valid?
       @article.save
+      redirect_to @articles
     else
       render :new
     end 
@@ -32,17 +33,16 @@ before_action :set_article, only: [:edit, :update]
       else
         render action: 'edit'
       end
-    
   end
 
   private
 
-  def set_article
-    @article = Article.find(params[:id])
-  end
+    def set_article
+      @article = Article.find(params[:id])
+    end
 
-  def article_params
-    params.require(:article).permit(:title, :text)
-  end
+    def article_params
+      params.require(:article).permit(:title, :text)
+    end
 
 end
