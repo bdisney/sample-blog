@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # get 'contacts' => 'contacts#new' первый способ вывода страницы при обновлении
   resources :articles do
-    resources :comments
+    resources :comments, only: [:create]
   end
   resource :contacts, only: [:new, :create], path_names: {:new => ''}
   
