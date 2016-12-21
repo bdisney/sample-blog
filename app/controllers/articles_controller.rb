@@ -3,11 +3,7 @@ class ArticlesController < ApplicationController
 before_action :set_article, only: [:edit, :updaate]
   
   def index
-    @articles = Article.all
-  end
-
-  def show
-    @article = Article.find(params[:id])
+    @articles = Article.order('created_at DESC') 
   end
 
   def new
@@ -18,8 +14,12 @@ before_action :set_article, only: [:edit, :updaate]
     if @article.valid?
       @article.save
     else
-      render action: 'new'
+      render :new
     end 
+  end
+
+  def show
+    @article = Article.find(params[:id])
   end
 
   def edit
