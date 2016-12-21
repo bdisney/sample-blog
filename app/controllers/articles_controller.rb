@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
 
-before_action :set_article, only: [:edit, :update]
+before_action :set_article, only: [:edit, :show, :update]
   
   def index
-    @articles = Article.order('created_at DESC') 
+    @articles = Article.order('updated_at DESC') 
   end
 
   def new
@@ -19,15 +19,13 @@ before_action :set_article, only: [:edit, :update]
     end 
   end
 
-  def show
-    @article = Article.find(params[:id])
+  def show    
   end
 
   def edit
   end
 
   def update 
-    @article = Article.find(params[:id])
       if @article.update(article_params)
         redirect_to @article
       else
