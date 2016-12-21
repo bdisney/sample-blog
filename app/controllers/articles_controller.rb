@@ -34,7 +34,6 @@ before_action :set_article, only: [:edit, :show, :update, :destroy]
 
   def destroy
     @article.destroy
-
     redirect_to articles_path
   end
 
