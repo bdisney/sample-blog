@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
 
+before_filter :authenticate_user!
+
 before_action :set_article, only: [:edit, :show, :update, :destroy]
+
   
   def index
     @articles = Article.order('updated_at DESC') 
