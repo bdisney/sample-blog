@@ -6,7 +6,8 @@ before_action :set_article, only: [:edit, :show, :update, :destroy]
 
   
   def index
-    @articles = Article.order('updated_at DESC') 
+    @articles = Article.includes(:comments).order("comments.created_at desc")
+    
   end
 
   def new
