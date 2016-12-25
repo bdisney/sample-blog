@@ -1,6 +1,6 @@
 <h3><%= @article. title %></h3>
 <p><%= @article.text %></p>
-<p><sub>Added at: <%= @article.created_at %></sub></p>
+<p><sub>Added by <%= @article.user.username %> at: <%= @article.created_at %></sub></p>
 <p><%= link_to 'Show all articles', articles_path %></p>
 
 
@@ -9,12 +9,11 @@
 	<% @article.comments.each do |comment|%>
 		<%= comment.body %>
 		<% if comment.body != nil%>
-			<p><sub>Added by <%= comment.author %> at: <%= comment.created_at %></sub></p>
+			<p><sub>Added by   at: <%= comment.created_at %></sub></p>
 		<% end %>
 	<% end %>
 	<p>
-		<%= f.label :author %><br />
-		<%= f.text_field :author %>
+		
 	</p>
 	<p>
 		<%= f.label :comment %><br />

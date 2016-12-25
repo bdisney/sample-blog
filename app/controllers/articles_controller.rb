@@ -13,7 +13,10 @@ before_action :set_article, only: [:edit, :show, :update, :destroy]
   end
   
   def create
-    @article = Article.new(article_params)  
+    @article = current_user.articles.build(article_params)
+    #@article.user_id = current_user.id
+
+
     if @article.save
       redirect_to @article
     else
@@ -47,7 +50,7 @@ before_action :set_article, only: [:edit, :show, :update, :destroy]
     end
 
     def article_params
-      params.require(:article).permit(:title, :text)
+      params.require(:article).permit(:title, :text, :user_id)
     end
 
 end
