@@ -16,11 +16,14 @@
 		
 	</p>
 	<p>
-		<%= f.label :comment %><br />
-		<%= f.text_area :body %>
+	<br/>	
+	<br/>
+
+	<%= f.text_area :body, class: "form-control", style: "width: 400px", rows: "4", placeholder: "Surprise us! " %>
 	</p>
 	<p>
-		<%= f.submit 'Add comment' %>
+		<%= f.submit 'Add comment',  class: "btn btn-success btn-sm" %>
+		<%= link_to 'Cancel', articles_path, class: "btn btn-danger btn-sm" %>
 	</p>
 <% end %>
 </p>
