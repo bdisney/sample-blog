@@ -1,6 +1,6 @@
 <h3><%= @article. title %></h3>
 <p><%= @article.text %></p>
-<p><sub>Added by <%= @article.user.username %> at: <%= time_ago_in_words(@article.created_at) %></sub></p>
+<p><sub>Added by <%= @article.user.username %> <%= time_ago_in_words(@article.created_at) %> ago</sub></p>
 <p><%= link_to 'Show all articles', articles_path %></p>
 
 
