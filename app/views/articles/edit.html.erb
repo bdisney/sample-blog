@@ -1,11 +1,8 @@
-Hello!
+<h3><%= @article. title %></h3>
+<p><%= @article.text %></p>
+<p><sub>Added at: <%= @article.created_at %></sub></p>
 
-
-	<h3><%= @article. title %></h3>
-	<p><%= @article.text %></p>
-	<p><sub>Added at: <%= @article.created_at %></sub></p>
-	<p></p>
-	<br />
+<br />
 
 
 <%= form_for :article, url:article_path(@article), method: :put do |f| %>
@@ -28,7 +25,7 @@ Hello!
 	</p>
 
 	<p>
-		<%= f.submit 'Update&save' %>
+		<button type="submit" class="btn btn-success btn-sm">Update</button>
 	</p>
 
 <% end %>
