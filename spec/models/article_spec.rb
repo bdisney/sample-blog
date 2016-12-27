@@ -7,6 +7,16 @@ describe Article do
   end
   describe "associations" do
     it { should have_many :comments }
+    it { should belong_to :user }
   end
-  
+
+  describe "#subject" do
+    it "returns the article title" do
+      # create object article, non standart way
+      article = create(:article, title: 'Lorem Ipsum')
+
+      expect(article.subject).to eq 'Lorem Ipsum'
+    end
+
+  end  
 end
